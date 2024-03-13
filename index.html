@@ -21,10 +21,6 @@
             font-weight: 400;
             font-style: normal;
         }
-        .heading {
-            font-size: 50px;
-            margin-bottom: 0;
-        }
         .card {
             border-radius: 20px;
             box-shadow: unset;
@@ -40,30 +36,18 @@
   </head>
   <body style="background-color: #51b4c5;">
 
-    <div class="modal fade" data-bs-backdrop="static" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Masukkan Nama Anda</h5>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <input type="text" class="form-control" id="inputNama" placeholder="Masukkan Nama Anda">
-                </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" onclick="simpanNama()" class="btn btn-primary">Simpan</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
     <div class="row">
         <div class="col-md-12">
             <div class="p-3">
+                <div class="card text-center mb-3">
+                    <div class="card-body p-5 text-center">
+                        <h4 class="fw-bold mb-3">Kepada Yth:</h4>
+                        <h1 class="gvr fw-bold mb-0" id="namanya"></h1>
+                    </div>
+                </div>
                 <div class="card text-center mb-3" style="background-size: 900px;background-image: url(bunga.jpg);background-position: center ;">
                     <div class="card-body p-5">
-                        <h1 class="gvr fw-bold heading mb-3 text-success">Undangan Pernikahan</h1>
+                        <h1 class="gvr fw-bold mb-3 text-success">Undangan Pernikahan</h1>
                         <h1 class="gvr">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</h1>
                         <p>Dengan memohon rahmat & ridho dari Allah Azza wa jalla<br>
                         Kami mengundang Bapak/ibu/saudara/i sekalian untuk <br>
@@ -72,15 +56,15 @@
                 </div>
                 <div class="card text-center mb-3" style="background-size: 1000px;background-image: url(bunga.jpg);background-position: center ;">
                     <div class="card-body p-5">
-                        <h1 class="gvr fw-bold heading mb-0 text-success">Resyaldi, SE</h1>
+                        <h1 class="gvr fw-bold mb-0 text-success">Resyaldi, SE</h1>
                         <p class="fw-500">Putra pertama dari Bapak Syamsul Faisal (Alm) & Ibu Rehati</p>
-                        <h1 class="gvr fw-bold heading mb-0 text-secondary">&</h1>
-                        <h1 class="gvr fw-bold heading mb-0 text-success">Nurfadillah Agus</h1>
+                        <h1 class="gvr fw-bold mb-0 text-secondary">&</h1>
+                        <h1 class="gvr fw-bold mb-0 text-success">Nurfadillah Agus</h1>
                         <p class="fw-500">Putri bungsu dari Bapak Agus Sukri (Alm) & Ibu Rukiah (Alm)</p>
                     </div>
                 </div>
                 <div class="card text-center mb-3">
-                    <div class="card-body p-5">
+                    <div class="card-body p-xl-5">
                         <div class="mb-3">
                             <h4 class="fw-bold">Yang Insyaa Allah akan diselenggarakan pada :</h4>
                             <h3 class="klm">Minggu, 21 April 2024</h3>
@@ -101,37 +85,13 @@
                         <a href="https://maps.app.goo.gl/yL2cC5oiWPbszVB38" target="_blank" class="btn btn-info">Buka di aplikasi Google Maps</a>
                     </div>
                 </div>
-                <div class="card text-cente">
-                    <div class="card-body p-5 text-center">
-                        <h4 class="fw-bold mb-3">Kepada Yth:</h4>
-                        <h1 class="gvr heading fw-bold mb-0" id="namanya"></h1>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
-
-    <!-- Optional JavaScript; choose one of the two! -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    -->
     <script>
-        $(document).ready(()=>{
-            // $("#exampleModal").modal("show")
-        })
-
-        function simpanNama(){
-            let nm = $("#inputNama").val()
-            $("#namanya").text(nm)
-            $("#exampleModal").modal("hide")
-        }
+        const params = new URLSearchParams(document.location.search);
+        const s = params.get("s");
+        document.getElementById("namanya").innerHTML = s
     </script>
   </body>
 </html>
